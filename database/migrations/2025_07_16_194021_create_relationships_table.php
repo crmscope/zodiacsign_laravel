@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('relationships', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->bigInteger('zodiac_signs_one')->nullable();
+            $table->bigInteger('zodiac_signs_two')->nullable();
         });
     }
 

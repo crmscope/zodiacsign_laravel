@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('relationships_news', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->bigInteger('relationships_id')->nullable();
+            $table->smallInteger('score')->nullable();
+            $table->text('comment');
         });
     }
 

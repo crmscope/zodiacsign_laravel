@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('login')->nullable();
+            $table->string('password')->nullable();
+            $table->string('name')->nullable();
+            $table->time('birthday')->nullable();
+
         });
     }
 
