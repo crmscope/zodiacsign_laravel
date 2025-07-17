@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('relationships', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('zodiac_signs_one')->nullable();
-            $table->bigInteger('zodiac_signs_two')->nullable();
+            $table->bigInteger('zodiac_signs_one')->nullable()->unsigned();
+            $table->bigInteger('zodiac_signs_two')->nullable()->unsigned();
+            $table->index('zodiac_signs_one', 'zodiac_signs_one_idx');
+            $table->index('zodiac_signs_two', 'zodiac_signs_two_idx');
+            $table->foreign('zodiac_signs_one', 'zodiac_signs_one_fx')->on('zodiac_signs')->references('id');
+            $table->foreign('zodiac_signs_two', 'zodiac_signs_two_fx')->on('zodiac_signs')->references('id');    
         });
     }
 
